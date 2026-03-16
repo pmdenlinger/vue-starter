@@ -80,6 +80,12 @@ aside {
   display: flex;
   flex: 1;
 }
+
+.dark {
+    background: #38383a;
+    color: whitesmoke;
+}
+
 @media (min-width: 900px) {
   .blog_wrapper {
     max-width: 70vw;
