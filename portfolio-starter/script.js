@@ -1,12 +1,3 @@
-Vue.createApp({
-    data() {
-        return {
-            name: "Chris Dixon",
-            links:["home", "portfolio", "contact me"]
-        };
-    },
-}).mount("header")
-
 const posts = [
                 {
                     id:1,
@@ -24,10 +15,18 @@ const posts = [
                     body: "I'm baby chambray street art thundercats occupy four loko church-key disrupt. Shaman neutra bushwick chicharonnes",
                 },
             ]
+
+
+
 Vue.createApp({
-    data(){
+    data() {
         return {
+            name: "Chris Dixon",
+            links:["home", "portfolio", "contact me"],
             posts,
+            darkModeSet: true,
+            textColor:"hotpink"
         };
     },
-}).mount("#blog");
+}).mount("body");
+
