@@ -18,7 +18,7 @@
         <nav>
           <ul>
             <li v-for="link in links" :key="link.id">
-                <a :href="link.url" :style="[ 10 < 5 ? darkMode : base ]">{{ link.name }}</a>
+                <a :href="link.url" :style="{ color: darkModeSet ? 'whitesmoke' : textColor }">{{ link.name }}</a>
             </li>
           </ul>
         </nav>
@@ -26,7 +26,9 @@
       <main>
         
         <div class="blog_wrapper">
-            <button @click=""></button>
+            <button @click = "darkModeSet = !darkModeSet">toggle
+            {{ darkModeSet ? '☀️' : '🌙' }}
+            </button>
           <!-- BLOG SECTION -->
            
           <section id="blog">
