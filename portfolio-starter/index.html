@@ -18,14 +18,16 @@
         <nav>
           <ul>
             <li v-for="link in links" :key="link.id">
-                <a :href="link.url">{{ link.name }}</a>
+                <a :href="link.url" :style="{ color: 10 < 5 ? 'whitesmoke' : textColor }">{{ link.name }}</a>
             </li>
           </ul>
         </nav>
       </header>
       <main>
+        
         <div class="blog_wrapper">
           <!-- BLOG SECTION -->
+           
           <section id="blog">
             <article v-for="post in posts" :key="post.id">
               <h3>{{ post.title }}</h3>
@@ -34,6 +36,7 @@
             </article>
           </section>
         </div>
+        
       </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.prod.js"></script>
