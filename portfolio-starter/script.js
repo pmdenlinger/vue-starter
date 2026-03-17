@@ -1,3 +1,10 @@
+const links = [
+    { id:1, name:"home", url:"index.html"},
+    { id:2, name:"portfolio", url:"portfolio.html" },
+    { id: 3, name:"contact me", url:"contact.html"}
+];
+
+
 const posts = [
                 {
                     id:1,
@@ -22,7 +29,7 @@ Vue.createApp({
     data() {
         return {
             name: "Chris Dixon",
-            links:["home", "portfolio", "contact me"],
+            links,
             posts,
             darkModeSet: true,
             textColor:"hotpink"
