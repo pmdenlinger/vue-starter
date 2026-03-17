@@ -18,7 +18,7 @@
         <nav>
           <ul>
             <li v-for="link in links" :key="link.id">
-                <a :href="link.url" :style="{ color: 10 < 5 ? 'whitesmoke' : textColor }">{{ link.name }}</a>
+                <a :href="link.url" :style="[ 10 < 5 ? darkMode : base ]">{{ link.name }}</a>
             </li>
           </ul>
         </nav>
