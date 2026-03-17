@@ -32,4 +32,9 @@ Vue.createApp({
       textColor: 'hotpink',
     };
   },
+  methods: {
+    toggleMode() {
+      this.darkModeSet = !this.darkModeSet;
+    },
+  },
 }).mount('body');
