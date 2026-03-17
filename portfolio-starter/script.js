@@ -23,6 +23,12 @@ const posts = [
 ];
 
 Vue.createApp({
+    beforeCreate() {
+        console.log("beforeCreate:" + this.name);
+    },
+    created() {
+        console.log("Created:" + this.name);
+    },
   data() {
     return {
       name: 'Chris Dixon',
