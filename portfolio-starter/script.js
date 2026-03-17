@@ -1,9 +1,3 @@
-const links = [
-  { id: 1, name: 'home', url: 'index.html' },
-  { id: 2, name: 'portfolio', url: 'portfolio.html' },
-  { id: 3, name: 'contact me', url: 'contact.html' },
-];
-
 const posts = [
   {
     id: 1,
@@ -22,6 +16,14 @@ const posts = [
   },
 ];
 
+const links = [
+  { id: 1, name: 'home', url: 'index.html' },
+  { id: 2, name: 'portfolio', url: 'portfolio.html' },
+  { id: 3, name: 'contact me', url: 'contact.html' },
+];
+
+
+
 Vue.createApp({
     created() {
         this.getPosts();
@@ -30,9 +32,15 @@ Vue.createApp({
     return {
       name: 'Chris Dixon',
       links,
-      posts,
+      posts: [],
       darkModeSet: false,
-      textColor: 'hotpink',
+      darkMode: {
+        background: '#38383a',
+        color: "whitesmoke",
+      },
+      base: {
+        fontFamily: "monospace",
+      },
     };
   },
   methods: {
@@ -42,7 +50,7 @@ Vue.createApp({
     async getPosts() {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         const data = await response.json();
-        this.posts = data;
+        this.posts = data.slice(0, 3);
     }
   },
-}).mount('body');
+}).mount('#blog');
