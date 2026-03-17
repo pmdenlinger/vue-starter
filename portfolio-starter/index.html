@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Chris Dixon's Portfolio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500"
       rel="stylesheet"
@@ -12,21 +12,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div :style="{color:textColor}">
+    <div :style="[darkModeSet ? darkMode : '', base]">
       <header>
-        <h1>{{name}}'s Portfolio</h1>
+        <h1>{{ name }}'s Portfolio</h1>
         <nav>
           <ul>
             <li v-for="link in links" :key="link.id">
-                <a :href="link.url" :style="{ color: darkModeSet ? 'whitesmoke' : textColor }">{{ link.name }}</a>
+                <a :href="link.url">{{ link.name }}</a>
             </li>
           </ul>
         </nav>
       </header>
       <main>
-        
         <div class="blog_wrapper">
-            <button @click = "toggleMode">toggle
+            <button @click = "toggleMode">
             {{ darkModeSet ? '☀️' : '🌙' }}
             </button>
           <!-- BLOG SECTION -->
@@ -34,13 +33,12 @@
           <section id="blog">
             <article v-for="post in posts" :key="post.id">
               <h3>{{ post.title }}</h3>
-              <p>{{ post.body }}</p>
+              <p v-html="post.body"</p>
               <p class="read_more">Read More</p>
             </article>
           </section>
         </div>
-        
-      </main>
+    </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.prod.js"></script>
     <script src="script.js"></script>

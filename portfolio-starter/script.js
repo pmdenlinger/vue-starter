@@ -23,11 +23,8 @@ const posts = [
 ];
 
 Vue.createApp({
-    beforeCreate() {
-        console.log("beforeCreate:" + this.name);
-    },
     created() {
-        console.log("Created:" + this.name);
+        this.getPosts();
     },
   data() {
     return {
@@ -42,5 +39,10 @@ Vue.createApp({
     toggleMode() {
       this.darkModeSet = !this.darkModeSet;
     },
+    async getPosts() {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const data = await response.json();
+        this.posts = data;
+    }
   },
 }).mount('body');
