@@ -21,13 +21,10 @@ const links = [
   { id: 2, name: 'portfolio', url: 'portfolio.html' },
   { id: 3, name: 'contact me', url: 'contact.html' },
 ];
-
-
-
-Vue.createApp({
-    created() {
-        this.getPosts();
-    },
+const app = Vue.createApp({
+  created() {
+    this.getPosts();
+  },
   data() {
     return {
       name: 'Chris Dixon',
@@ -36,10 +33,10 @@ Vue.createApp({
       darkModeSet: false,
       darkMode: {
         background: '#38383a',
-        color: "whitesmoke",
+        color: 'whitesmoke',
       },
       base: {
-        fontFamily: "monospace",
+        fontFamily: 'monospace',
       },
     };
   },
@@ -48,9 +45,32 @@ Vue.createApp({
       this.darkModeSet = !this.darkModeSet;
     },
     async getPosts() {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const data = await response.json();
-        this.posts = data.slice(0, 3);
-    }
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const data = await response.json();
+      this.posts = data.slice(0, 3);
+    },
   },
-}).mount('#blog');
+});
+
+app.component('app-header', {
+  data() {
+    return {
+      name: 'Chris Dixon',
+      links,
+    };
+  },
+  template: `
+    <header>
+      <h1>{{ name }}'s Portfolio</h1>
+      <nav>
+        <ul>
+          <li v-for="link in links" :key="link.id">
+            <a :href="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  `,
+});
+
+app.mount('body');

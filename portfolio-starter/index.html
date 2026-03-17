@@ -20,8 +20,7 @@
             {{ darkModeSet ? '☀️' : '🌙' }}
             </button>
           <!-- BLOG SECTION -->
-           
-          <section id="blog">
+           <section id="blog">
             <article v-for="post in posts" :key="post.id">
               <h3>{{ post.title }}</h3>
               <p v-html="post.body"></p>
