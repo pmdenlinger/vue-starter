@@ -21,11 +21,7 @@
             </button>
           <!-- BLOG SECTION -->
            <section id="blog">
-            <article v-for="post in posts" :key="post.id">
-              <h3>{{ post.title }}</h3>
-              <p v-html="post.body"></p>
-              <p class="read_more">Read More</p>
-            </article>
+            <blog-post></blog-post>
           </section>
         </div>
     </main>
